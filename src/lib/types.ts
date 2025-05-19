@@ -40,6 +40,8 @@ export type ClaimVerificationData = {
   token_count: number;
   usage: ClaimUsage;
   claim_detail: ClaimDetail[];
+  metadata: MetaData;
+  summary: SummaryData;
 };
 
 export type MetaData = {

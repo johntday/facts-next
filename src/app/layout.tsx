@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Navbar from "@/components/Navbar";
+import type { Metadata } from "next";
+import "./globals.css";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -25,19 +25,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-     <TooltipProvider>
-       <div className="min-h-screen flex flex-col">
-         <Navbar />
-         {children}
-         <Toaster />
-       </div>
-     </TooltipProvider>
-    // <html lang="en">
-    //   <body
-    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    //   >
-    //     {children}
-    //   </body>
-    // </html>
+    <html lang="en">
+      <body>
+        <TooltipProvider>
+          <div className="min-h-screen flex flex-col">
+            <Navbar />
+            {children}
+            <Toaster />
+          </div>
+        </TooltipProvider>
+      </body>
+    </html>
   );
 }
