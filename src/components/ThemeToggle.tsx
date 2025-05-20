@@ -1,49 +1,33 @@
-import { useState, useEffect } from "react";
-import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  // Check if darkMode is set in localStorage or use user's system preference
+  // Avoid hydration mismatch by only rendering after mount
   useEffect(() => {
-    // Check for localStorage first
-    const savedTheme = localStorage.getItem("theme");
-    
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark");
-      document.documentElement.classList.toggle("dark", savedTheme === "dark");
-    } else {
-      // Check for system preference if nothing in localStorage
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setIsDarkMode(prefersDark);
-      document.documentElement.classList.toggle("dark", prefersDark);
-    }
+    setMounted(true);
   }, []);
 
+  if (!mounted) return null;
+
+  const isDark = resolvedTheme === "dark";
+
   const toggleTheme = () => {
-    const newDarkMode = !isDarkMode;
-    setIsDarkMode(newDarkMode);
-    
-    // Update DOM
-    document.documentElement.classList.toggle("dark", newDarkMode);
-    
-    // Save preference to localStorage
-    localStorage.setItem("theme", newDarkMode ? "dark" : "light");
+    setTheme(isDark ? "light" : "dark");
   };
 
   return (
-    <Button 
-      variant="ghost" 
-      size="icon" 
+    <Button
+      variant="ghost"
+      size="icon"
       onClick={toggleTheme}
-      aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {isDarkMode ? (
-        <Moon className="h-5 w-5" />
-      ) : (
-        <Sun className="h-5 w-5" />
-      )}
+      {isDark ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
     </Button>
   );
 }
