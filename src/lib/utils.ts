@@ -34,7 +34,6 @@ export async function fetchData(
       console.error(res);
     } else {
       verificationData = await res.json();
-      console.log(verificationData);
     }
   } catch (e) {
     console.error(e);
