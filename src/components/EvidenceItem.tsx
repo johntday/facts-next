@@ -1,5 +1,5 @@
-import { ExternalLink } from "lucide-react";
 import { ClaimEvidence } from "@/lib/types";
+import { ExternalLink } from "lucide-react";
 
 interface EvidenceItemProps {
   evidence: ClaimEvidence;
@@ -27,20 +27,24 @@ export default function EvidenceItem({ evidence }: EvidenceItemProps) {
     displayUrl = new URL(evidence.url).hostname;
   } catch (error) {
     // If URL parsing fails, just use the URL as is or extract domain another way
-    displayUrl = evidence.url.replace(/^https?:\/\//, '').split('/')[0] || evidence.url;
+    displayUrl =
+      evidence.url.replace(/^https?:\/\//, "").split("/")[0] || evidence.url;
   }
 
   return (
-    <div className="mb-4 bg-muted/50 rounded-lg border border-border overflow-hidden hover:shadow-md dark:hover:border-primary dark:hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">
+    <div className="mb-4 bg-muted/50 rounded-lg border border-border overflow-hidden card-hover-outline">
       <div className="px-4 py-3 bg-muted border-b border-border flex justify-between items-center">
         <div className="flex items-center">
-          <span className={`px-2 py-0.5 rounded-md text-xs font-medium ${relationshipTagClass}`}>
-            {evidence.relationship.charAt(0) + evidence.relationship.slice(1).toLowerCase()}
+          <span
+            className={`px-2 py-0.5 rounded-md text-xs font-medium ${relationshipTagClass}`}
+          >
+            {evidence.relationship.charAt(0) +
+              evidence.relationship.slice(1).toLowerCase()}
           </span>
-          <a 
-            href={evidence.url} 
-            className="ml-3 text-sm text-primary hover:text-primary/80 truncate flex items-center" 
-            target="_blank" 
+          <a
+            href={evidence.url}
+            className="ml-3 text-sm text-primary hover:text-primary/80 truncate flex items-center"
+            target="_blank"
             rel="noopener noreferrer"
           >
             {displayUrl}

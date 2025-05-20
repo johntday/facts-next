@@ -35,7 +35,7 @@ export default function ClaimAnalysis({
   const factualityPercentage = Math.round(claim.factuality * 100);
 
   return (
-    <div className="bg-card shadow-sm rounded-lg overflow-hidden mb-6 border border-border hover:shadow-md dark:hover:border-primary dark:hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">
+    <div className="bg-card shadow-sm rounded-lg overflow-hidden mb-6 border card-hover-outline">
       <div
         className={`px-4 py-5 sm:px-6 bg-muted/50 ${
           isExpanded ? "border-b border-border" : ""

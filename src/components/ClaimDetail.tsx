@@ -3,10 +3,16 @@ import Navbar from "@/components/Navbar";
 import OriginalText from "@/components/OriginalText";
 import { Button } from "@/components/ui/button";
 import { ClaimVerificationData } from "@/lib/types";
-import { ArrowLeft, ArrowRight, Clock, FileText, MessageCircle } from 'lucide-react'
-import Link from "next/link";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Clock,
+  FileText,
+  MessageCircle,
+} from "lucide-react";
+// import Link from "next/link";
+import { formatUnixDate } from "@/lib/utils";
 import { notFound } from "next/navigation";
-import { formatUnixDate } from '@/lib/utils'
 
 export default async function ClaimDetail({
   claim,
@@ -17,7 +23,7 @@ export default async function ClaimDetail({
     notFound();
   }
 
-  const claimDate = formatUnixDate(claim.content.metadata.created_at_unix)
+  const claimDate = formatUnixDate(claim.content.metadata.created_at_unix);
 
   return (
     <>
@@ -45,11 +51,11 @@ export default async function ClaimDetail({
                 </div>
               </div>
             </div>
-            <div className="mt-4 flex md:mt-0 md:ml-4">
-              <Link href="/">
-                <Button className="mb-4">Return to Claims List</Button>
-              </Link>
-            </div>
+            {/*<div className="mt-4 flex md:mt-0 md:ml-4">*/}
+            {/*  <Link href="/">*/}
+            {/*    <Button className="mb-4">Return to Claims List</Button>*/}
+            {/*  </Link>*/}
+            {/*</div>*/}
           </div>
         </div>
 

@@ -47,3 +47,14 @@
 
 @layer base {
 }
+
+@layer utilities {
+  .animate-tw-pulse {
+    animation: tw-pulse 1s infinite;
+  }
+  .card-hover-outline:hover {
+    outline: 6px solid hsl(var(--primary));
+    outline-offset: 0px;
+    transition: outline 0.2s;
+  }
+}

@@ -1,11 +1,11 @@
+import typography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
 
 export default {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     "./app/**/*.{js,jsx,ts,tsx}",
-    "./client/index.html",
-    "./client/src/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}", // Adjust as needed for your file structure
   ],
   theme: {
     extend: {
@@ -90,5 +90,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [typography],
 } satisfies Config;

@@ -4,15 +4,17 @@ interface OriginalTextProps {
   analysisDate: string;
 }
 
-export default function OriginalText({ 
-  rawText, 
-  tokenCount, 
-  analysisDate 
+export default function OriginalText({
+  rawText,
+  tokenCount,
+  analysisDate,
 }: OriginalTextProps) {
   return (
-    <div className="bg-card shadow-sm rounded-lg overflow-hidden mb-6 border border-border hover:shadow-md dark:hover:border-primary dark:hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">
+    <div className="bg-card shadow-sm rounded-lg overflow-hidden mb-6 border card-hover-outline">
       <div className="px-4 py-5 sm:px-6 bg-muted/50 border-b border-border">
-        <h3 className="text-lg font-medium leading-6 text-card-foreground">CLAIM TEXT</h3>
+        <h3 className="text-lg font-medium leading-6 text-card-foreground">
+          CLAIM TEXT
+        </h3>
         <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
           The raw text that was analyzed for factual claims.
         </p>
