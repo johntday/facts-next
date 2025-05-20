@@ -1,8 +1,9 @@
-import Detail from "@/components/Detail";
+import ClaimDetail from "@/components/ClaimDetail";
 import { fetchData } from "@/lib/utils";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = await params;
+  console.log(id);
 
   const verificationData = await fetchData(id);
 
@@ -10,5 +11,5 @@ export default async function Page({ params }: { params: { id: string } }) {
     return <div>Error</div>;
   }
 
-  return <Detail verificationData={verificationData} />;
+  return <ClaimDetail claim={verificationData} />;
 }

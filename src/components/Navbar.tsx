@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const [pathname] = usePathname();
 
   return (
     <header className="bg-background border-b border-border sticky top-0 z-10">

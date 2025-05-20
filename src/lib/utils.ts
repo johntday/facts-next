@@ -6,18 +6,19 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatDate(date: Date): string {
-  return date.toLocaleDateString("en-US", {
+export function formatUnixDate(unixDate: number): string {
+  return new Date(unixDate * 1000).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
   });
 }
 
 export async function fetchData(
   id: string
 ): Promise<ClaimVerificationData | null> {
-  let o = null;
   let verificationData: ClaimVerificationData | null = null;
   try {
     const res = await fetch(
@@ -29,15 +30,15 @@ export async function fetchData(
         // Optionally: cache: 'no-store',
       }
     );
-    if (!res.ok) console.log(res);
-    else o = await res.json();
+    if (!res.ok) {
+      console.error(res);
+    } else {
+      verificationData = await res.json();
+      console.log(verificationData);
+    }
   } catch (e) {
     console.error(e);
   }
-  if (o) {
-    o.content = JSON.parse(o.content);
-    verificationData = o;
-  }
-  console.log(o);
+
   return verificationData;
 }

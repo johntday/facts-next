@@ -36,20 +36,24 @@ export type ClaimDetail = {
 
 export type ClaimVerificationData = {
   id: string;
-  raw_text: string;
-  token_count: number;
-  usage: ClaimUsage;
-  claim_detail: ClaimDetail[];
-  metadata: MetaData;
-  summary: SummaryData;
+  updated_at: string;
+  created_at: string;
+  content: {
+    raw_text: string;
+    token_count: number;
+    usage: ClaimUsage;
+    claim_detail: ClaimDetail[];
+    metadata: MetaData;
+    summary: SummaryData;
+  };
 };
 
 export type MetaData = {
-  source_id: string;
+  id: string;
   source_name: string;
-  source_user_name: string;
-  source_date: string;
-}
+  user_screen_name: string;
+  created_at_unix: number;
+};
 
 export type SummaryData = {
   num_claims: number;
@@ -59,4 +63,4 @@ export type SummaryData = {
   num_refuted_claims: number;
   num_controversial_claims: number;
   factuality: number;
-}
+};
