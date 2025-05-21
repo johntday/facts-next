@@ -41,3 +41,22 @@ export async function fetchData(
 
   return verificationData;
 }
+
+export function factualityPercentage(data: ClaimVerificationData): number {
+    return Math.round(
+    (data.content.summary.factuality || 0) * 100
+  );
+}
+
+export function factualityStatusClass(data: ClaimVerificationData): string {
+  const factuality_percentage = factualityPercentage(data);
+
+  if (factuality_percentage < 70) {
+      return "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400";
+    //statusText = "Refuted";
+  } else if (factuality_percentage < 90) {
+      return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400";
+    //statusText = "Partially Verified";
+  }
+  return "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400";
+}

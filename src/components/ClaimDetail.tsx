@@ -61,7 +61,7 @@ export default async function ClaimDetail({
                 <div className="mt-2 flex items-center text-sm text-muted-foreground">
                   <MessageCircle className="flex-shrink-0 mr-1.5 h-5 w-5 text-muted-foreground" />
                   <span>
-                    SOURCE User: {claim.content.metadata.user_screen_name}
+                    User: {claim.content.metadata.user_screen_name}
                   </span>
                 </div>
               </div>

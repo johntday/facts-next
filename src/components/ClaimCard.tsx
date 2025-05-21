@@ -1,33 +1,16 @@
 import { ClaimVerificationData } from "@/lib/types";
-import Link from "next/link";
+import { factualityPercentage, factualityStatusClass } from '@/lib/utils'
 
 interface ClaimCardProps {
   claim: ClaimVerificationData;
 }
 
 export default function ClaimCard({ claim }: ClaimCardProps) {
-  // Always use summary.factuality for the percentage
-  const factualityPercentage = Math.round(
-    (claim.content.summary.factuality || 0) * 100
-  );
-
-  // Determine status based on factuality
-  let statusClass =
-    "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400";
-  //let statusText = "Verified";
-
-  if (factualityPercentage < 70) {
-    statusClass =
-      "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400";
-    //statusText = "Refuted";
-  } else if (factualityPercentage < 90) {
-    statusClass =
-      "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400";
-    //statusText = "Partially Verified";
-  }
+  const factuality_percentage = factualityPercentage(claim);
+  const statusClass = factualityStatusClass(data);
 
   return (
-    <Link href={`/claims/${claim.id}`}>
+    // <Link href={`/claims/${claim.id}`}>
       <div className="bg-card shadow-sm rounded-lg overflow-hidden mb-6 border card-hover-outline">
         <div className="px-4 py-5 sm:px-6 bg-muted/50">
           <div className="flex items-center justify-between">
@@ -43,7 +26,7 @@ export default function ClaimCard({ claim }: ClaimCardProps) {
               <p
                 className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${statusClass}`}
               >
-                Factuality {factualityPercentage}%
+                Factuality {factuality_percentage}%
               </p>
             </div>
           </div>
@@ -52,6 +35,6 @@ export default function ClaimCard({ claim }: ClaimCardProps) {
           </p>
         </div>
       </div>
-    </Link>
+    // </Link>
   );
 }
