@@ -52,7 +52,7 @@ export type MetaData = {
   id: string;
   source_name: string;
   user_screen_name: string;
-  created_at_unix: number;
+  created_at: number;
 };
 
 export type SummaryData = {

@@ -23,7 +23,7 @@ export default async function ClaimDetail({
     notFound();
   }
 
-  const claimDate = formatUnixDate(claim.content.metadata.created_at_unix);
+  const claimDate = formatUnixDate(claim.content.metadata.created_at);
 
   return (
     <>
@@ -43,11 +43,26 @@ export default async function ClaimDetail({
                 </div>
                 <div className="mt-2 flex items-center text-sm text-muted-foreground">
                   <FileText className="flex-shrink-0 mr-1.5 h-5 w-5 text-muted-foreground" />
-                  <span>ID: {claim.id}</span>
+                  <span>
+                    ID:{" "}
+                    <a
+                      href={`https://x.com/${claim.content.metadata.user_screen_name}/status/${claim.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {claim.id}
+                    </a>
+                  </span>
                 </div>
                 <div className="mt-2 flex items-center text-sm text-muted-foreground">
                   <MessageCircle className="flex-shrink-0 mr-1.5 h-5 w-5 text-muted-foreground" />
                   <span>SOURCE: X (Twitter)</span>
+                </div>
+                <div className="mt-2 flex items-center text-sm text-muted-foreground">
+                  <MessageCircle className="flex-shrink-0 mr-1.5 h-5 w-5 text-muted-foreground" />
+                  <span>
+                    SOURCE User: {claim.content.metadata.user_screen_name}
+                  </span>
                 </div>
               </div>
             </div>
