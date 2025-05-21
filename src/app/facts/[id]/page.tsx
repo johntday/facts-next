@@ -1,7 +1,11 @@
 import ClaimDetail from "@/components/ClaimDetail";
 import { fetchData } from "@/lib/utils";
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = await params;
 
   const verificationData = await fetchData(id);

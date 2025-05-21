@@ -8,7 +8,7 @@ interface ClaimCardProps {
 export default function ClaimCard({ claim }: ClaimCardProps) {
   // Always use summary.factuality for the percentage
   const factualityPercentage = Math.round(
-    (claim.summary?.factuality || 0) * 100
+    (claim.content.summary.factuality || 0) * 100
   );
 
   // Determine status based on factuality
