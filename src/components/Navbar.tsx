@@ -19,7 +19,7 @@ export default function Navbar() {
               >
                 <path d="M12 2L2 6v12l10 4 10-4V6L12 2zm-1 15.93l-6-2.4V8.07l6 2.4v7.46zm-4-10.76L12 4.07l5 2.1L12 8.27 7 6.17zm11 8.36l-6 2.4v-7.46l6-2.4v7.46z" />
               </svg>
-              <Link href="/">
+              <Link href="#">
                 <span className="ml-2 text-xl font-bold text-primary cursor-pointer">
                   America News
                 </span>
