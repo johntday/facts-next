@@ -20,7 +20,7 @@ export default function OriginalText({
         </p>
       </div>
       <div className="px-4 py-5 sm:p-6">
-        <div className="text-sm text-card-foreground bg-muted/50 p-4 rounded-md border border-border">
+        <div className="text-sm text-card-foreground bg-muted/50 p-2 rounded-md ">
           <p>{rawText}</p>
         </div>
       </div>
