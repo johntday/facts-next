@@ -26,16 +26,17 @@ export default function Navbar() {
               </Link>
             </div>
             <nav className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link
-                href="/"
-                className={`${
-                  pathname === "/"
-                    ? "border-primary text-primary"
-                    : "border-transparent text-muted-foreground hover:border-muted hover:text-foreground"
-                } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
-              >
+              {/*<Link*/}
+              {/*  href="/"*/}
+              {/*  className={`${*/}
+              {/*    pathname === "/"*/}
+              {/*      ? "border-primary text-primary"*/}
+              {/*      : "border-transparent text-muted-foreground hover:border-muted hover:text-foreground"*/}
+              {/*  } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}*/}
+              {/*>*/}
                 Claims
-              </Link>
+              {/*</Link>*/}
+
               {/*<a href="#" className="border-transparent text-muted-foreground hover:border-muted hover:text-foreground inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">*/}
               {/*  Dashboard*/}
               {/*</a>*/}
