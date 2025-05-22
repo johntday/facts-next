@@ -3,15 +3,15 @@ import Navbar from "@/components/Navbar";
 import OriginalText from "@/components/OriginalText";
 import { Button } from "@/components/ui/button";
 import { ClaimVerificationData } from "@/lib/types";
+import { factualityPercentage, formatUnixDate } from "@/lib/utils";
 import {
   ArrowLeft,
   ArrowRight,
+  Bot,
   Clock,
   FileText,
   MessageCircle,
 } from "lucide-react";
-// import Link from "next/link";
-import { factualityPercentage, formatUnixDate } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import FactualityBadge from "./FactualityBadge";
 
@@ -39,6 +39,7 @@ export default async function ClaimDetail({
               </h1>
               <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
                 <div className="mt-2 flex items-center text-sm text-muted-foreground">
+                  <Bot className="flex-shrink-0 mr-1.5 h-5 w-5 text-muted-foreground" />
                   <span>
                     <FactualityBadge
                       factuality={claim.content.summary.factuality}
