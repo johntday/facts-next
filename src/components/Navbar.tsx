@@ -21,7 +21,7 @@ export default function Navbar() {
               </svg>
               <Link href="/">
                 <span className="ml-2 text-xl font-bold text-primary cursor-pointer">
-                  ClaimVerify
+                  America News
                 </span>
               </Link>
             </div>
