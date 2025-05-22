@@ -4,8 +4,8 @@ import React from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Fact Verification App",
-  description: "A web application for fact verification",
+  title: "America News",
+  description: "Fact verification for social media",
 };
 
 export default function RootLayout({
