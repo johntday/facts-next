@@ -13,6 +13,7 @@ import {
 // import Link from "next/link";
 import { formatUnixDate } from "@/lib/utils";
 import { notFound } from "next/navigation";
+import FactualityBadge from "./FactualityBadge";
 
 export default async function ClaimDetail({
   claim,
@@ -38,6 +39,13 @@ export default async function ClaimDetail({
               </h1>
               <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
                 <div className="mt-2 flex items-center text-sm text-muted-foreground">
+                  <span>
+                    <FactualityBadge
+                      factuality={claim.content.summary.factuality}
+                    />
+                  </span>
+                </div>
+                <div className="mt-2 flex items-center text-sm text-muted-foreground">
                   <Clock className="flex-shrink-0 mr-1.5 h-5 w-5 text-muted-foreground" />
                   <span>{claimDate}</span>
                 </div>
@@ -60,9 +68,7 @@ export default async function ClaimDetail({
                 </div>
                 <div className="mt-2 flex items-center text-sm text-muted-foreground">
                   <MessageCircle className="flex-shrink-0 mr-1.5 h-5 w-5 text-muted-foreground" />
-                  <span>
-                    User: {claim.content.metadata.user_screen_name}
-                  </span>
+                  <span>User: {claim.content.metadata.user_screen_name}</span>
                 </div>
               </div>
             </div>
