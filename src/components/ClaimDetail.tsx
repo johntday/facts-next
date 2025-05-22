@@ -11,7 +11,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 // import Link from "next/link";
-import { formatUnixDate } from "@/lib/utils";
+import { factualityPercentage, formatUnixDate } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import FactualityBadge from "./FactualityBadge";
 
@@ -43,6 +43,7 @@ export default async function ClaimDetail({
                     <FactualityBadge
                       factuality={claim.content.summary.factuality}
                     />
+                    [ {factualityPercentage(claim)} / 100 ]
                   </span>
                 </div>
                 <div className="mt-2 flex items-center text-sm text-muted-foreground">
