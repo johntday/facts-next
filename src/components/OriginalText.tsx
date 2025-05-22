@@ -1,3 +1,5 @@
+import { MessageCircle } from 'lucide-react'
+
 interface OriginalTextProps {
   rawText: string;
   tokenCount: number;
@@ -13,7 +15,8 @@ export default function OriginalText({
     <div className="bg-card shadow-sm rounded-lg overflow-hidden mb-6 border card-hover-outline">
       <div className="px-4 py-5 sm:px-6 bg-muted/50 border-b border-border">
         <h3 className="text-lg font-medium leading-6 text-card-foreground">
-          CLAIM TEXT
+          <MessageCircle  />
+          <span>CLAIM TEXT</span>
         </h3>
         <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
           The raw text that was analyzed for factual claims.

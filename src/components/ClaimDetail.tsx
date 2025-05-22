@@ -11,6 +11,7 @@ import {
   Clock,
   FileText,
   MessageCircle,
+  User,
 } from "lucide-react";
 import { notFound } from "next/navigation";
 import FactualityBadge from "./FactualityBadge";
@@ -69,8 +70,8 @@ export default async function ClaimDetail({
                   <span>SOURCE: X (Twitter)</span>
                 </div>
                 <div className="mt-2 flex items-center text-sm text-muted-foreground">
-                  <MessageCircle className="flex-shrink-0 mr-1.5 h-5 w-5 text-muted-foreground" />
-                  <span>User: {claim.content.metadata.user_screen_name}</span>
+                  <User className="flex-shrink-0 mr-1.5 h-5 w-5 text-muted-foreground" />
+                  <span>{claim.content.metadata.user_screen_name}</span>
                 </div>
               </div>
             </div>
