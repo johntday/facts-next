@@ -1,12 +1,12 @@
 "use client";
 
 import { ClaimDetail } from "@/lib/types";
+import { checkworthinessFactualityRating } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import EvidenceItem from "./EvidenceItem";
 import FactualityBadge from "./FactualityBadge";
 import NotCheckworthyBadge from "./NotCheckworthyBadge";
-
 interface ClaimAnalysisProps {
   claim: ClaimDetail;
   claimNumber: number;
@@ -49,7 +49,11 @@ export default function ClaimAnalysis({
           </h3>
           <div className="ml-2 flex-shrink-0 flex items-center">
             {claim.checkworthy ? (
-              <FactualityBadge factuality={claim.factuality} />
+              isNaN(factualityPercentage) ? (
+                <NotCheckworthyBadge text="Undetermined" />
+              ) : (
+                <FactualityBadge factuality={claim.factuality} />
+              )
             ) : (
               <NotCheckworthyBadge />
             )}
@@ -77,7 +81,7 @@ export default function ClaimAnalysis({
                   {claim.checkworthy_reason}
                 </p>
               </div>
-              {claim.checkworthy && (
+              {claim.checkworthy && !isNaN(factualityPercentage) && (
                 <div className="sm:ml-6 sm:w-40">
                   <h4 className="text-sm font-medium text-muted-foreground">
                     Factuality Rating
@@ -86,13 +90,9 @@ export default function ClaimAnalysis({
                     <div className="flex items-center">
                       <div className="w-full bg-muted rounded-full h-2.5">
                         <div
-                          className={`${
-                            factualityPercentage >= 80
-                              ? "bg-green-500"
-                              : factualityPercentage >= 50
-                              ? "bg-yellow-500"
-                              : "bg-red-500"
-                          } h-2.5 rounded-full`}
+                          className={`${checkworthinessFactualityRating(
+                            factualityPercentage
+                          )} h-2.5 rounded-full`}
                           style={{ width: `${factualityPercentage}%` }}
                         ></div>
                       </div>
