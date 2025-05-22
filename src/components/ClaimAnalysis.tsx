@@ -106,22 +106,6 @@ export default function ClaimAnalysis({
             </div>
           </div>
 
-          {/*{claim.queries && claim.queries.length > 0 && (*/}
-          {/*  <div className="border-b border-border bg-muted/50 px-4 py-5 sm:px-6">*/}
-          {/*    <h4 className="text-sm font-medium text-muted-foreground mb-2">Generated Queries</h4>*/}
-          {/*    <div className="space-y-2">*/}
-          {/*      {claim.queries.map((query, index) => (*/}
-          {/*        <div */}
-          {/*          key={index} */}
-          {/*          className="text-sm text-card-foreground bg-background p-2 rounded border border-border"*/}
-          {/*        >*/}
-          {/*          {query}*/}
-          {/*        </div>*/}
-          {/*      ))}*/}
-          {/*    </div>*/}
-          {/*  </div>*/}
-          {/*)}*/}
-
           {claim.checkworthy && (
             <div className="px-4 py-5 sm:px-6">
               <div className="flex justify-between items-center mb-4">
