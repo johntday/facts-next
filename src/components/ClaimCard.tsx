@@ -7,7 +7,7 @@ interface ClaimCardProps {
 
 export default function ClaimCard({ claim }: ClaimCardProps) {
   const factuality_percentage = factualityPercentage(claim);
-  const statusClass = factualityStatusClass(data);
+  const statusClass = factualityStatusClass(claim);
 
   return (
     // <Link href={`/claims/${claim.id}`}>
