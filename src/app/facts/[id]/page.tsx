@@ -1,5 +1,5 @@
 import ClaimDetail from "@/components/ClaimDetail";
-import { fetchData } from "@/lib/utils";
+import { getRedisData } from '@/lib/redis'
 
 export default async function Page({
   params,
@@ -8,7 +8,7 @@ export default async function Page({
 }) {
   const { id } = await params;
 
-  const verificationData = await fetchData(id);
+  const verificationData = await getRedisData(id)
 
   if (!verificationData) {
     return <div>Error</div>;
