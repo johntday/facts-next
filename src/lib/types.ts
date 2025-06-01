@@ -38,14 +38,12 @@ export type ClaimVerificationData = {
   id: string;
   updated_at: string;
   created_at: string;
-  content: {
-    raw_text: string;
-    token_count: number;
-    usage: ClaimUsage;
-    claim_detail: ClaimDetail[];
-    metadata: MetaData;
-    summary: SummaryData;
-  };
+  raw_text: string;
+  token_count: number;
+  usage: ClaimUsage;
+  claim_detail: ClaimDetail[];
+  metadata: MetaData;
+  summary: SummaryData;
 };
 
 export type MetaData = {

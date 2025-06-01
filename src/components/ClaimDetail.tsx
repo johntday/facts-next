@@ -25,7 +25,7 @@ export default async function ClaimDetail({
     notFound();
   }
 
-  const claimDate = formatUnixDate(claim.content.metadata.created_at);
+  const claimDate = formatUnixDate(claim.metadata.created_at);
 
   return (
     <>
@@ -43,7 +43,7 @@ export default async function ClaimDetail({
                   <Bot className="flex-shrink-0 mr-1.5 h-5 w-5 text-muted-foreground" />
                   <span>
                     <FactualityBadge
-                      factuality={claim.content.summary.factuality}
+                      factuality={claim.summary.factuality}
                     />
                     [ {factualityPercentage(claim)} / 100 ]
                   </span>
@@ -57,7 +57,7 @@ export default async function ClaimDetail({
                   <span>
                     ID:{" "}
                     <a
-                      href={`https://x.com/${claim.content.metadata.user_screen_name}/status/${claim.id}`}
+                      href={`https://x.com/${claim.metadata.user_screen_name}/status/${claim.id}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -71,7 +71,7 @@ export default async function ClaimDetail({
                 </div>
                 <div className="mt-2 flex items-center text-sm text-muted-foreground">
                   <User className="flex-shrink-0 mr-1.5 h-5 w-5 text-muted-foreground" />
-                  <span>{claim.content.metadata.user_screen_name}</span>
+                  <span>{claim.metadata.user_screen_name}</span>
                 </div>
               </div>
             </div>
@@ -86,13 +86,13 @@ export default async function ClaimDetail({
         {/* Content */}
         {/* Original Text */}
         <OriginalText
-          rawText={claim.content.raw_text}
-          tokenCount={claim.content.token_count}
+          rawText={claim.raw_text}
+          tokenCount={claim.token_count}
           analysisDate={claimDate}
         />
 
         {/* Claim Analysis */}
-        {claim.content.claim_detail.map((claimDetail, index) => (
+        {claim.claim_detail.map((claimDetail, index) => (
           <ClaimAnalysis
             key={index}
             claim={claimDetail}

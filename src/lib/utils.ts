@@ -17,7 +17,7 @@ export function formatUnixDate(unixDate: number): string {
 }
 
 export function factualityPercentage(data: ClaimVerificationData): number {
-  return Math.round((data.content.summary.factuality || 0) * 100);
+  return Math.round((data.summary.factuality || 0) * 100);
 }
 
 export function factualityStatusClass(data: ClaimVerificationData): string {
