@@ -57,11 +57,11 @@ export default async function ClaimDetail({
                   <span>
                     ID:{" "}
                     <a
-                      href={`https://x.com/${claim.metadata.user_screen_name}/status/${claim.id}`}
+                      href={`https://x.com/${claim.metadata.user_screen_name}/status/${claim.metadata.id}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {claim.id}
+                      {claim.metadata.id}
                     </a>
                   </span>
                 </div>
