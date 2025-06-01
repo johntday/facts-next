@@ -2,7 +2,7 @@ import { createClient } from 'redis'
 import { ClaimVerificationData } from '@/lib/types'
 
 const redisClient = createClient({
-  url: process.env.REDIS_URL
+  url: process.env.REDIS_URL + '?family=0'
 })
 
 redisClient.on('error', (err) => console.log('Redis Client Error', err))
