@@ -82,7 +82,7 @@
 
     .card-hover-outline:hover {
         outline: 4px solid hsl(var(--primary));
-        outline-offset: 0px;
+        outline-offset: -1px;
         transition: outline 0.1s;
     }
 }
