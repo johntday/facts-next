@@ -11,7 +11,7 @@ export default async function Page({
   const verificationData = await getRedisData(id)
 
   if (!verificationData) {
-    return <div>Error</div>;
+    return <div>Not Found</div>;
   }
 
   return <ClaimDetail claim={verificationData} />;

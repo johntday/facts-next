@@ -1,4 +1,5 @@
 // https://docs.railway.com/reference/errors/enotfound-redis-railway-internal
+// https://github.com/redis/ioredis
 import Redis from 'ioredis';
 import { ClaimVerificationData } from '@/lib/types'
 
