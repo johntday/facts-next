@@ -1,13 +1,13 @@
-import { createClient } from 'redis'
+// https://docs.railway.com/reference/errors/enotfound-redis-railway-internal
+import Redis from 'ioredis';
 import { ClaimVerificationData } from '@/lib/types'
 
-const redisClient = createClient({
-  url: process.env.REDIS_URL + '?family=0'
-})
+const redis_url = process.env.REDIS_URL + '?family=0';
+const redis = new Redis( redis_url );
 
-redisClient.on('error', (err) => console.log('Redis Client Error', err))
+redis.on('error', (err) => console.log('Redis Client Error', err))
 
-await redisClient.connect()
+// await redis.connect()
 
 // export default redisClient;
 
@@ -16,7 +16,7 @@ export async function getRedisData(
    id: string
 ): Promise<ClaimVerificationData | null> {
   try {
-    const valueString = await redisClient.get(id)
+    const valueString = await redis.get(id)
     if (!valueString) {
       console.error(`Error getting data from Redis, id=${id}, value=${valueString}`)
       return null
